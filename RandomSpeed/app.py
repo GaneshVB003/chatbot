@@ -13,6 +13,11 @@ genai.configure(api_key=GEMINI_API_KEY)
 # Initialize Gemini model
 model = genai.GenerativeModel("gemini-2.0-flash")
 
+@app.route('/')
+def home():
+    return send_file('index.html')
+
+
 @app.route("/chat", methods=["POST"])
 def chat():
     try:
